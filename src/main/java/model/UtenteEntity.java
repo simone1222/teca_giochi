@@ -17,9 +17,6 @@ public class UtenteEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@SequenceGenerator(name="seq", initialValue=100)
-//	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator= "seq")
-
 	private long id;
 	
 	private String nome;

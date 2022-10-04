@@ -13,13 +13,14 @@
 
 <h3></h3>
 	<h3><a href="<c:url value="/"/>">Logout</a></h3>
+	<h2 align="center">Qui puoi scegliere i tuoi generi preferiti</h2>
 	<div id="id_Genere" align="center" >
-		<h2>Qui puoi visualizzare tutti i giochi</h2>
+		
 		<form:form method="post" modelAttribute="utente">
 			<table border="0" cellpadding="5">
 				<tr>
 
-					<td style="color:blue;" align="center"><form:hidden path="id" />${utente.username}</td>
+					<td style="color:red;" align="center"><form:hidden path="id" /><h2>${utente.username}</h2></td>
 				</tr>
 				<tr>
 					<%-- 					<td>${genere.id}<form:hidden path="id_Genere" /></td> --%>
@@ -39,7 +40,7 @@
 			
 			<tr><thead>
 					<tr>
-						<th>SCEGLI IL TUO GENERE PREFERITO</th>
+						<th>SCEGLI UN GENERE</th>
 					
 
 						<td></td>
@@ -58,12 +59,16 @@
 						<ul> <!-- lista principale: definisce il menu nella sua interezza -->
 						<li>
 						
-						<form:hidden path="email" /> <!-- primo list-item, prima voce del menu -->
+						
+						<form:hidden path="nome" /> <!-- primo list-item, prima voce del menu -->
+						
+						
 						<ul> <!-- Lista annidata: voci del sotto-menu -->
-						<li><a href="/rollDice">Azzardo</a></li>
-						<li><a href="#">Logica</a></li>
-						<li><a href="#">RompiCapo</a></li>
-						<li><a href="#">Altro..</a></li>
+						<li><a href=""><input type="button" value="RUOLO"/></a></li>
+						<li><a href="#"><input type="button" value="SIMULAZIONE"/></a></li>
+						<li><a href="#"><input type="button" value="AZIONE"/></a></li>
+						<li><a href="#"><input type="button" value="AVVENTURA"/></a></li>						
+						<li><a href="#"><input type="button" value="ALTRO"/></a></li>
 						
 						</ul> <!-- Fine del sotto-menu -->
 						</li> </td><!-- Chiudo il list-item -->

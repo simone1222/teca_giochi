@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +18,7 @@ public class GiochiEntity {
 	
 	private String nome;
 	
-	private Date dataUscita;
+	
 	
 	@ManyToOne()
 	private GenereEntity genere;
@@ -33,12 +31,6 @@ public class GiochiEntity {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public Date getDataUscita() {
-		return dataUscita;
-	}
-	public void setDataUscita(Date dataUscita) {
-		this.dataUscita = dataUscita;
 	}
 	public GenereEntity getGenere() {
 		return genere;

@@ -14,6 +14,8 @@ public class GenereEntity  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	private String nome;
+	
 	public long getId() {
 		return id;
 	}
@@ -21,8 +23,6 @@ public class GenereEntity  {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	private String nome;
 
 	public String getNome() {
 		return nome;
