@@ -1,8 +1,9 @@
 package model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +12,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity(name = "UTENTI")
 @Table(name = "UTENTE")
 public class UtenteEntity {
@@ -23,67 +29,12 @@ public class UtenteEntity {
 	private String password;
 	private String email;
 	private String username;
-
-	@ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
-	  name = "gioco_utente", 
-	  joinColumns = @JoinColumn(name = "fk_utente"), 
-	  inverseJoinColumns = @JoinColumn(name = "fk_gioco"))
-	private Set<GiochiEntity>giochi;
+            name = "GIOCO_UTENTE", joinColumns = @JoinColumn(name = "FK_UTENTE"), inverseJoinColumns = @JoinColumn(name = "FK_GIOCO"))
+    private List<GiochiEntity> giochi;
 
-	public Set<GiochiEntity> getGiochi() {
-		return giochi;
-	}
 
-	public void setGiochi(Set<GiochiEntity> giochi) {
-		this.giochi = giochi;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	@Override
-	public String toString() {
-		return "UtenteEntity [id=" + id + ", nome=" + nome + ", password=" + password + ", email=" + email
-				+ ", username=" + username + "]";
-	}
 
 	
 

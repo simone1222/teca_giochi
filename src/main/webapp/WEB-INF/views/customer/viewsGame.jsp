@@ -64,11 +64,11 @@
 						
 						
 						<ul> <!-- Lista annidata: voci del sotto-menu -->
-						<li><a href="giochi?genere=RUOLO"><input type="button" value="RUOLO"/></a></li>
-						<li><a href="giochi?genere=SIMULAZIONE"><input type="button" value="SIMULAZIONE"/></a></li>
-						<li><a href="giochi?genere=AZIONE"><input type="button" value="AZIONE"/></a></li>
-						<li><a href="giochi?genere=AVVENTURA"><input type="button" value="AVVENTURA"/></a></li>						
-						<li><a href="giochi?genere=ALTRO"><input type="button" value="ALTRO"/></a></li>
+						<li><a href="giochi?genere=1"><input type="button" value="RUOLO"/></a></li>
+						<li><a href="giochi?genere=2"><input type="button" value="SIMULAZIONE"/></a></li>
+						<li><a href="giochi?genere=3"><input type="button" value="AZIONE"/></a></li>
+						<li><a href="giochi?genere=4"><input type="button" value="AVVENTURA"/></a></li>						
+						<li><a href="giochi?genere=5"><input type="button" value="ALTRO"/></a></li>
 						
 						</ul> <!-- Fine del sotto-menu -->
 						</li> </td><!-- Chiudo il list-item -->
