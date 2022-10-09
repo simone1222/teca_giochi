@@ -6,8 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity()
 @Table(name = "GENERE")
+@Getter
+@Setter
 public class GenereEntity  {
 	
 	@Id
@@ -16,21 +21,6 @@ public class GenereEntity  {
 	
 	private String nome;
 	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	
 	
 }

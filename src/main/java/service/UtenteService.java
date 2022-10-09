@@ -23,40 +23,40 @@ import repository.UserRepository;
 @Service
 @Transactional
 public class UtenteService {
-	@Autowired
-	UserRepository repo;
+    @Autowired
+    UserRepository repo;
 
-	
-	public boolean isLogged(UtenteEntity utente) {
-		for(UtenteEntity entity : repo.findAll()) {
-			if( entity.getUsername().equals(utente.getUsername()) &&
-			utente.getPassword().equals(entity.getPassword())
-			
-			) {
-		return true;
-	}
-}
-return false;
-	}
-	public void save(UtenteEntity utente) {
-		repo.save(utente);
-	}
+    public UtenteEntity getUtente(String username) {
+        return repo.getByUsername(username);
+    }
+    public boolean isLogged(UtenteEntity utente) {
+        for (UtenteEntity entity : repo.findAll()) {
+            if (entity.getUsername().equals(utente.getUsername())
+                    && utente.getPassword().equals(entity.getPassword())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	public List<UtenteEntity> listAll() {
-		return (List<UtenteEntity>) repo.findAll();
-	}
+    public void save(UtenteEntity utente) {
+        repo.save(utente);
+    }
 
-	public UtenteEntity get(Long id) {
-		return repo.findById(id).get();
-	}
+    public List<UtenteEntity> listAll() {
+        return (List<UtenteEntity>) repo.findAll();
+    }
 
-	public void delete(Long id) {
-		repo.deleteById(id);
-	}
+    public UtenteEntity get(Long id) {
+        return repo.findById(id).get();
+    }
 
-	public List<UtenteEntity> search(String keyword) {
-		return repo.search(keyword);
-	}
-	
-	
+    public void delete(Long id) {
+        repo.deleteById(id);
+    }
+
+    public List<UtenteEntity> search(String keyword) {
+        return repo.search(keyword);
+    }
+
 }

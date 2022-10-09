@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import model.GenereEntity;
 import model.UtenteEntity;
 //Ebbene, questo è quasi tutto il codice di cui abbiamo bisogno per implementare il data access layer.
 //Questa interfaccia serve a disaccoppiare il business/service layer dal repository/DAO layer.
@@ -27,8 +26,9 @@ public interface UserRepository extends CrudRepository<UtenteEntity, Long> {
 " OR c.username LIKE '%' || :keyword || '%'")
 public List<UtenteEntity> search(@Param("keyword") String keyword);
 
-@Query(value="SELECT count(u) FROM UTENTI u WHERE u.username = :username and u.password=:password")
-public int isLogged(@Param("username") String username, @Param("password") String password);
+public UtenteEntity getByUsername(String username);
+//@Query(value="SELECT count(u) FROM UTENTI u WHERE u.username = :username and u.password=:password")
+//public int isLogged(@Param("username") String username, @Param("password") String password);
 
 
 

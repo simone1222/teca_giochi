@@ -53,7 +53,11 @@
 					<td><a href="edit?id=${utente.id}">| Modifica Account |</a>
 						&nbsp;&nbsp;&nbsp; <a href="delete?id=${utente.id}">| Elimina Account |</a>
 					
-					&nbsp;&nbsp;&nbsp; <a href="viewsGame?id=${utente.id}">| Gioca |</a>&nbsp;&nbsp;&nbsp;
+					<c:if test="${sessionScope.idUsernameLogged == utente.id}">
+&nbsp;&nbsp;&nbsp; <a href="viewsGame?id=${utente.id}">| Gioca |</a>&nbsp;&nbsp;&nbsp;
+</c:if>
+					
+					&nbsp;&nbsp;&nbsp; <a href="listaGiochiUtente?id=${utente.id}">| Lista Giochi Utente |</a>&nbsp;&nbsp;&nbsp;
 					<a href=https://www.youtube.com>| Musica |</a>
 					</td>
 					

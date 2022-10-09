@@ -4,16 +4,17 @@ package controller;
 import java.util.List;
 import java.util.Map;
 
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import model.UtenteEntity;
 import service.UtenteService;
 
@@ -42,14 +43,19 @@ private boolean isLogged(HttpSession session) {
         List<UtenteEntity> utenti = utenteService.listAll();
         ModelAndView viewModel = new ModelAndView("home");
         viewModel.addObject("utenti", utenti);
+        viewModel.addObject("utente", new UtenteEntity());
+
          return viewModel;
 
     }
-	@RequestMapping("/home/index")
+
+    @PostMapping("/home/index")
 	public ModelAndView index(@ModelAttribute("utente")UtenteEntity utente,HttpSession session) {
+        UtenteEntity utenteDB = utenteService.getUtente(utente.getUsername());
 
 		if(utenteService.isLogged(utente)) {
-			session.setAttribute("usernameLogged", utente.getUsername());
+            session.setAttribute("usernameLogged", utente.getUsername());
+            session.setAttribute("idUsernameLogged", utenteDB.getId());
 			return new ModelAndView( "redirect:/index?id=" + utente.getId());
 			
 		}else
